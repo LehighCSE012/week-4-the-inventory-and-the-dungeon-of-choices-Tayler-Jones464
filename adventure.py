@@ -2,20 +2,20 @@
 import random
 
 inventory = []
-def acquire_item(inventory, item)
+def acquire_item(inventory, item):
     """Appends items to empty inventory list"""
     inventory.append(item)
     print(f"You acquired a {item}")
     return inventory
 
-def display_inventory(inventory)
+def display_inventory(inventory):
     """Prints player's current inventory whether blank or filled"""
-    if inventory == []
+    if inventory == []:
         print("Your inventory is empty.")
     else:
         print("Your inventory: ")
         item_number = 1
-        for item n inventory:
+        for item in inventory:
             print(f"{item_number}. {item}")
             item_number += 1
 
@@ -79,7 +79,7 @@ def check_for_treasure(has_treasure):
         print("The monster did not have the treasure. You continue on your journey")
 
 def main():
-    """Initializes varibales and sets things up"""
+    """Initializes variables and sets things up"""
     player_health = 100
     monster_health = 65
     has_treasure = False
@@ -90,6 +90,10 @@ def main():
     treasure_obtained_in_combat = combat_encounter(player_health, monster_health, has_treasure)
 
     check_for_treasure(treasure_obtained_in_combat)
+
+    dungeon_rooms = [("old alchemy lab", "healing potion", "puzzle", ("Puzzle solved.", "it's unsolved.", +4))]
+    dungeon_rooms.extend(("Abandoned armory", "sword", "trap", ("avoided the trap.", "Trap triggered.", -8)))
+    dungeon_rooms.extend(("A dusty library", "map", "none", None))
 
 if __name__ == "__main__":
     main()
