@@ -76,8 +76,31 @@ def check_for_treasure(has_treasure):
     if has_treasure:
         print("You found the hidden treasure! You win!")
     else:
-        print("The monster did not have the treasure. You continue on your journey")
+        print("The monster did not have the treasure. You continue your journey")
 
+def enter_dungeon(player_health, inventory, dungeon_rooms):
+    for room in dungeon_rooms:
+        room[0]
+        print(room[0])
+        room[1]
+        if room[1] is None:
+            pass
+        else:
+           acquire_item(inventory, room[1])
+           inventory = acquire_item(inventory, room[1])
+        if room[2] == "puzzle":
+           print("You encounter a puzzle!")
+           solve_or_skip = input("Choose solve or skip: ")
+           if solve_or_skip == "solve":
+               success_or_failure = random.choice([True, False])
+        elif room[2] == "trap":
+           print("You see a potential trap!")
+           disarm_or_bypass = input("Choose to disarm or bypass: ")
+           if disarm_or_bypass == "disarm":
+               successful
+        else:
+           print("There doesn't seem to be a challenge in this room. You move on.")
+        
 def main():
     """Initializes variables and sets things up"""
     player_health = 100
@@ -91,9 +114,10 @@ def main():
 
     check_for_treasure(treasure_obtained_in_combat)
 
-    dungeon_rooms = [("old alchemy lab", "healing potion", "puzzle", ("Puzzle solved.", "it's unsolved.", +4))]
+    dungeon_rooms = [("old alchemy lab", "healing potion", "puzzle", ("Puzzle solved.", "Puzzle failed.", +4))]
     dungeon_rooms.extend(("Abandoned armory", "sword", "trap", ("avoided the trap.", "Trap triggered.", -8)))
     dungeon_rooms.extend(("A dusty library", "map", "none", None))
+    enter_dungeon(player_health, inventory, dungeon_rooms)
 
 if __name__ == "__main__":
     main()
